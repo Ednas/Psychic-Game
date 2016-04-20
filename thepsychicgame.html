@@ -6,9 +6,9 @@
 <body>
 <header><h1>The Psychic Game</h1></header>
 
-<!--Empty Div-->
+<!--Empty Div for the tallies-->
 <div id="game">
-	
+	<p><h1>The Psychic Game</h1></p>
 </div>
 
 <script type="text/javascript">
@@ -44,7 +44,9 @@ document.onkeyup = function(event) {
             return false;
         }
 
-        userGuess = guesses +;
+      //COME BACK TO THIS
+      // It's supposed to tally the guesses and make the number go down. 
+      //  userGuess = guesses +;
     }
 
     console.log("You must be Psychic");
@@ -55,11 +57,11 @@ document.onkeyup = function(event) {
         }else if (userGuess !== computerGuess){
             losses++;
         }
-        }  
+        
 
 
         // Taking the tallies and displaying them in HTML
-        var html = "<p>Press r, p or s to start playing</p>" +
+        var html = "<p><h1>The Psychic Game</h1></p>" +
         "<p>Wins: " + 
         wins + 
         "</p>" +
@@ -74,6 +76,8 @@ document.onkeyup = function(event) {
 
         // Placing the html into the game ID
         document.querySelector('#game').innerHTML = html;
+    
+}
 
 </script>
 
