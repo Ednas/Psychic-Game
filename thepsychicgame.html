@@ -8,7 +8,10 @@
 
 <!--Empty Div for the tallies-->
 <div id="game">
-	<p><h1>The Psychic Game</h1></p>
+	<p id="wins">Wins: </p>
+    <p id="losses">Losses: </p>
+    <p id="guessLeft">Guesses Left: </p>
+    <p id="let">Your Guesses so far: </p>
 </div>
 
 <script type="text/javascript">
@@ -46,7 +49,7 @@ document.onkeyup = function(event) {
 
       //COME BACK TO THIS
       // It's supposed to tally the guesses and make the number go down. 
-      //  userGuess = guesses +;
+      //  userGuess = guesses -;
     }
 
     console.log("You must be Psychic");
@@ -61,23 +64,23 @@ document.onkeyup = function(event) {
 
 
         // Taking the tallies and displaying them in HTML
-        var html = "<p><h1>The Psychic Game</h1></p>" +
+        var html = "" +
         "<p>Wins: " + 
         wins + 
         "</p>" +
         "<p>Losses: " + 
         losses + 
         "</p>" +
-        "<p>Guesses Left: " + (9 - guesses)
-        + (9 - guesses)  
+        "<p>Guesses Left: " + (9 - guesses) 
+        +
         "<p>Your Guesses so far: " + "userGuess"
         guesses +
         "</p>";
 
         // Placing the html into the game ID
         document.querySelector('#game').innerHTML = html;
-    
-}
+        
+}    
 
 </script>
 
