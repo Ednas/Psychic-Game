@@ -31,8 +31,7 @@ document.onkeyup = function(event) {
 //Allows the user 9 guesses
     guesses = guesses || 9
 
-//Prompts the user to make a guess and inputs it as the user guess
-    var userGuess = prompt("Guess what letter I'm thinking of?");
+
 
     // Repeat the following logic whenever the user guesses incorrectly.
     while (userGuess !== computerGuess.toString())
@@ -40,8 +39,9 @@ document.onkeyup = function(event) {
         --guesses;
         if (guesses === 0)
         {
+            {break}
             alert("The Letter was: " + computerGuess);
-            return false;
+            
         }
 
       //COME BACK TO THIS
@@ -50,7 +50,7 @@ document.onkeyup = function(event) {
     }
 
     console.log("You must be Psychic");
-    return true;
+
 
             if (userGuess == computerGuess){
             wins++;
@@ -68,8 +68,8 @@ document.onkeyup = function(event) {
         "<p>Losses: " + 
         losses + 
         "</p>" +
-        "<p>Guesses Left: " - 
-        guesses - 9 
+        "<p>Guesses Left: " + (9 - guesses)
+        + (9 - guesses)  
         "<p>Your Guesses so far: " + "userGuess"
         guesses +
         "</p>";
