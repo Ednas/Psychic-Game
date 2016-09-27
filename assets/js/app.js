@@ -66,50 +66,5 @@ document.onkeyup = function(event) {
             // Then we'll call the reset. 
             reset();
         }
-
-  // Repeat the following logic whenever the user guesses incorrectly.
-
-
-  // function round() {
-  //   while (userGuess !== computerGuess.toString()) {
-  //     guesses--;
-  //     if (guesses == 0) {
-  //       {
-  //         break }
-  //       alert("The Letter was: " + computerGuess);
-
-  //     }
-
-  //     //COME BACK TO THIS
-  //     // It's supposed to tally the guesses and make the number go down. 
-  //     //  userGuess = guesses -;
-  //   }
-  // }
-  // round();
-
-  // if (userGuess == computerGuess) {
-  //   wins++;
-  // } else if (userGuess !== computerGuess) {
-  //   losses++;
-  // }
-
-
-
-  // Taking the tallies and displaying them in HTML
-  //  var html = "" +
-  // "<p>Wins: " + 
-  // wins + 
-  // "</p>" +
-  // "<p>Losses: " + 
-  // losses + 
-  // "</p>" +
-  // "<p>Guesses Left: " + (9 - guesses) 
-  // +
-  // "<p>Your Guesses so far: " + userGuess
-  // guesses +
-  // "</p>";
-
-  // Placing the html into the game ID
-  //  document.querySelector('#game').innerHTML = html;
 };
 
