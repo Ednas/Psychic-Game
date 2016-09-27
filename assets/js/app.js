@@ -20,8 +20,31 @@ document.onkeyup = function(event) {
 
 //Allows the user 9 guesses
     guesses = guesses || 9
+    var updateGuessesLeft = function(){
+        // Here we are grabbing the HTML element and setting it equal to the guessesLeft. (i.e. guessesLeft will get displayed in HTML)
+        document.querySelector('#guessLeft').innerHTML = guessesLeft;
+    };
 
-
+    var updateLetterToGuess = function(){
+        // Here we get a random letterToGuess and assign it based on a random generator (only looking at a, b, or c)
+        this.letterToGuess = this.letters[Math.floor(Math.random() * this.letters.length)];
+    };
+    var updateGuessesSoFar = function(){
+        // Here we take the guesses the user has tried -- then display it as letters separated by commas. 
+        document.querySelector('#let').innerHTML = guessedLetters.join(', ');
+    };
+    // Function will be called when we reset everything
+    var reset = function(){
+        totalGuesses = 9;
+        guessesLeft = 9;
+        guessedLetters = [];
+        updateLetterToGuess();
+        updateGuessesLeft();
+        updateGuessesSoFar();
+    }
+    
+    updateLetterToGuess(); 
+    updateGuessesLeft();
 
     // Repeat the following logic whenever the user guesses incorrectly.
     while (userGuess !== computerGuess.toString())
