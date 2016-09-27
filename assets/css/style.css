@@ -2,21 +2,19 @@ body{
 	color: #777777;
 	background-image: url("");
 	border-color: #dddddd;
-	background-color: #ffffff;
 	font-size: 18px;
 	line-height: 34px;
 	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	background-image: url("../images/magicBall.png");
+    background-repeat: no-repeat;
+    background-color: #ffcfbc;    	
 }
 .mainHeader{
 	columns: 
 }
-.enderman {
-	max-width: 100px;
-	max-height: 150px;
-	float: right;
-	display: inline;
+#game{
+	text-align: left;
 }
-
 #container{
 	width: 100%;
 	max-width: 960px;
