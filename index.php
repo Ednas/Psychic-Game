@@ -1,1 +1,1 @@
-<?php include_once("thepsychicgame.html"); ?>
+<?php include_once("index.html"); ?>
