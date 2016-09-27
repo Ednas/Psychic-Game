@@ -18,8 +18,7 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 // guesses = guesses || 9
 var updateGuessesLeft = function() {
   // Here we are grabbing the HTML element and setting it equal to the guessesLeft. (i.e. guessesLeft will get displayed in HTML)
-  document.querySelector('#guessLeft').innerHTML = "Hello " + guessesLeft;
-  // document.getElementById('#guessLeft').append = "Hello " +guessesLeft;
+  document.querySelector('#guessLeft').innerHTML = "Guesses left: " + guessesLeft;
 };
 
 var updateLetterToGuess = function() {
@@ -27,7 +26,7 @@ var updateLetterToGuess = function() {
 };
 var updateGuessesSoFar = function() {
   // Here we take the guesses the user has tried -- then display it as letters separated by commas. 
-  document.querySelector('#let').innerHTML = guessedLetters.join(', ');
+  document.querySelector('#let').innerHTML = "Your Guesses so far: " + guessedLetters.join(', ');
 };
 // Function will be called when we reset everything
 var reset = function() {
@@ -51,6 +50,23 @@ document.onkeyup = function(event) {
   guessedLetters.push(userGuess);
   updateGuessesLeft();
   updateGuessesSoFar();
+
+        if (guessesLeft > 0){
+            if (userGuess == letterToGuess){
+                wins++;
+                document.querySelector('#wins').innerHTML = "Wins: " + wins;
+                alert("Yes, the letter was " + computerGuess.toUpperCase());
+                reset();
+            }
+        }else if(guessesLeft == 0){
+            // Then we will loss and we'll update the html to display the loss 
+            losses++;
+            document.querySelector('#losses').innerHTML = "Losses: " + losses;
+            alert("Sorry, the correct letter was " + computerGuess.toUpperCase() + " maybe try again?");
+            // Then we'll call the reset. 
+            reset();
+        }
+
   // Repeat the following logic whenever the user guesses incorrectly.
 
 
@@ -95,5 +111,5 @@ document.onkeyup = function(event) {
 
   // Placing the html into the game ID
   //  document.querySelector('#game').innerHTML = html;
+};
 
-}
