@@ -1,18 +1,18 @@
 //Letter choices available
-var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+let computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 //Setting all to zero
-var wins = 0;
-var losses = 0;
-var guesses = 9;
-var guessesLeft = 9;
-var guessedLetters = [];
-var letterToGuess = null;
+let wins = 0;
+let losses = 0;
+let guesses = 9;
+let guessesLeft = 9;
+let guessedLetters = [];
+let letterToGuess = null;
 
 
 
 //Lets the computer select a random letter from the available choices
-var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+let computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 //Allows the user 9 guesses
 // guesses = guesses || 9
@@ -47,21 +47,20 @@ updateGuessesLeft();
 //When key is released it becomes the users guess
 document.onkeyup = function(event) {
 
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
     let check = computerChoices.includes(userGuess);
     console.log(check);
-
-    guessesLeft--;
-    guessedLetters.push(userGuess);
-    updateGuessesLeft();
-    updateGuessesSoFar();
 
     if (check === false) {
         alert("That was not a valid guess, try again");
         return false;
     } else if (check === true) {
-
+        //If the Users choice was an alphabet char then update guesses left and add users guess to the array of guessed letters
+        guessesLeft--;
+        guessedLetters.push(userGuess);
+        updateGuessesLeft();
+        updateGuessesSoFar();
 
         if (guessesLeft > 0) {
             if (userGuess == letterToGuess) {
