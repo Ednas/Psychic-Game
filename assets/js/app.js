@@ -16,27 +16,28 @@ var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.l
 
 //Allows the user 9 guesses
 // guesses = guesses || 9
-var updateGuessesLeft = function() {
-  // Here we are grabbing the HTML element and setting it equal to the guessesLeft. (i.e. guessesLeft will get displayed in HTML)
-  document.querySelector('#guessLeft').innerHTML = "Guesses left: " + guessesLeft;
+function updateGuessesLeft() {
+    // Here we are grabbing the HTML element and setting it equal to the guessesLeft. (i.e. guessesLeft will get displayed in HTML)
+    document.querySelector('#guessLeft').innerHTML = "Guesses left: " + guessesLeft;
 };
 
-var updateLetterToGuess = function() {
-  this.letterToGuess = this.computerChoices[Math.floor(Math.random() * this.computerChoices.length)];
+function updateLetterToGuess() {
+    this.letterToGuess = this.computerChoices[Math.floor(Math.random() * this.computerChoices.length)];
 };
-var updateGuessesSoFar = function() {
-  // Here we take the guesses the user has tried -- then display it as letters separated by commas. 
-  document.querySelector('#let').innerHTML = "Your Guesses so far: " + guessedLetters.join(', ');
+
+function updateGuessesSoFar() {
+    // Here we take the guesses the user has tried -- then display it as letters separated by commas. 
+    document.querySelector('#let').innerHTML = "Your Guesses so far: " + guessedLetters.join(', ');
 };
 // Function will be called when we reset everything
 var reset = function() {
-  totalGuesses = 9;
-  guessesLeft = 9;
-  guessedLetters = [];
+    totalGuesses = 9;
+    guessesLeft = 9;
+    guessedLetters = [];
 
-  updateLetterToGuess();
-  updateGuessesLeft();
-  updateGuessesSoFar();
+    updateLetterToGuess();
+    updateGuessesLeft();
+    updateGuessesSoFar();
 }
 
 updateLetterToGuess();
@@ -45,21 +46,31 @@ updateGuessesLeft();
 
 //When key is released it becomes the users guess
 document.onkeyup = function(event) {
+
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+    let check = computerChoices.includes(userGuess);
+    console.log(check);
+
     guessesLeft--;
-  var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    guessedLetters.push(userGuess);
+    updateGuessesLeft();
+    updateGuessesSoFar();
 
-  guessedLetters.push(userGuess);
-  updateGuessesLeft();
-  updateGuessesSoFar();
+    if (check === false) {
+        alert("That was not a valid guess, try again");
+        return false;
+    } else if (check === true) {
 
-        if (guessesLeft > 0){
-            if (userGuess == letterToGuess){
+
+        if (guessesLeft > 0) {
+            if (userGuess == letterToGuess) {
                 wins++;
                 document.querySelector('#wins').innerHTML = "Wins: " + wins;
                 alert("Yes, you are psychic!");
                 reset();
             }
-        }else if(guessesLeft == 0){
+        } else if (guessesLeft == 0) {
             // Then we will loss and we'll update the html to display the loss 
             losses++;
             document.querySelector('#losses').innerHTML = "Losses: " + losses;
@@ -67,5 +78,9 @@ document.onkeyup = function(event) {
             // Then we'll call the reset. 
             reset();
         }
-};
+        return false;
+    } else {
+        alert("Oops, we have an error");
+    }
 
+};
