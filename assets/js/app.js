@@ -63,7 +63,7 @@ document.onkeyup = function(event) {
                 wins++;
                 document.querySelector('#wins').innerHTML = "Wins: " + wins;
                 userGuess = userGuess.toUpperCase();
-                alert("Yes, you are psychic! The correct guess was " + userGuess);
+                alert("Yes, you are psychic! Mantis has chosen " + userGuess);
                 reset();
             }
         } else if (guessesLeft == 0) {
