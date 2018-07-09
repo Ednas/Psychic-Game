@@ -1,5 +1,5 @@
 //Letter choices available
-let computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 //Setting all to zero
 let wins = 0;
@@ -7,12 +7,12 @@ let losses = 0;
 let guesses = 9;
 let guessesLeft = 9;
 let guessedLetters = [];
-let letterToGuess = null;
+var letterToGuess = null;
 
 
 
 //Lets the computer select a random letter from the available choices
-let computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 //Allows the user 9 guesses
 // guesses = guesses || 9
@@ -43,17 +43,13 @@ var reset = function() {
 updateLetterToGuess();
 updateGuessesLeft();
 
-
 //When key is released it becomes the users guess
 document.onkeyup = function(event) {
-
-    let userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-    let check = computerChoices.includes(userGuess);
-    console.log(check);
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    var check = computerChoices.includes(userGuess);
 
     if (check === false) {
-        alert("That was not a valid guess, try again");
+        alert("That was not a valid guess, try again?");
         return false;
     } else if (check === true) {
         //If the Users choice was an alphabet char then update guesses left and add users guess to the array of guessed letters
@@ -66,7 +62,8 @@ document.onkeyup = function(event) {
             if (userGuess == letterToGuess) {
                 wins++;
                 document.querySelector('#wins').innerHTML = "Wins: " + wins;
-                alert("Yes, you are psychic!");
+                userGuess = userGuess.toUpperCase();
+                alert("Yes, you are psychic! The correct guess was " + userGuess);
                 reset();
             }
         } else if (guessesLeft == 0) {
