@@ -9,7 +9,8 @@ let guessesLeft = 9;
 let guessedLetters = [];
 var letterToGuess = null;
 var yay = new Audio("./assets/sounds/success.mp3");
-
+var boo = new Audio("./assets/sounds/failure.mp3");
+var ouch = new Audio("./assets/sounds/wrongKey.wav");
 
 //Lets the computer select a random letter from the available choices
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
@@ -49,6 +50,7 @@ document.onkeyup = function(event) {
     var check = computerChoices.includes(userGuess);
 
     if (check === false) {
+        ouch.play();
         alert("That was not a valid guess, try again?");
         return false;
     } else if (check === true) {
@@ -70,6 +72,7 @@ document.onkeyup = function(event) {
         } else if (guessesLeft == 0) {
             // Then we will loss and we'll update the html to display the loss 
             losses++;
+            boo.play();
             document.querySelector('#losses').innerHTML = "Losses: " + losses;
             alert("Sorry, you're not psychic, maybe try again?");
             // Then we'll call the reset. 
