@@ -11,64 +11,56 @@
 
 <body>
     <div class="wrapper">
-        <div class="row">
+        <div class="col-md-3">
             <div class="mantis">
                 <img src="./assets/images/mantis.jpg" alt="Cute mantis from Marvel">
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
+        <div class="col-md-6 text-center">
+            <header>
+                <h1>The Psychic Game</h1>
+            </header>
+            <div class="instructions">
+                <h3>Try to guess the letter that Mantis has picked. Any letter from A - Z</h3>
+                <br>
+                <h2>Are you Psychic?</h2>
             </div>
-            <div class="col-md-6 text-center">
-                <header>
-                    <h1>The Psychic Game</h1>
-                </header>
-                <div class="instructions">
-                    <h3>Try to guess the letter that Mantis has picked. Any letter from A - Z</h3>
-                    <br>
-                    <h2>Are you Psychic?</h2>
-                </div>
-                <!--Empty Div for the tallies-->
-                <div id="game">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <p id="wins">Wins: </p>
-                        </li>
-                        <li class="list-group-item">
-                            <p id="losses">Losses: </p>
-                        </li>
-                        <li class="list-group-item">
-                            <p id="guessLeft">Guesses Left: </p>
-                        </li>
-                        <li class="list-group-item">
-                            <p id="let">Your Guesses so far: </p>
-                        </li>
-                    </ul>
-                </div>
+            <!--Empty Div for the tallies-->
+            <div id="game">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span id="wins">Wins: </span>
+                    </li>
+                    <li class="list-group-item">
+                        <p id="losses">Losses: </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p id="guessLeft">Guesses Left: </p>
+                    </li>
+                    <li class="list-group-item">
+                        <p id="let">Your Guesses so far: </p>
+                    </li>
+                </ul>
             </div>
-            <div class="col-md-3">
-                <div>
-                    <!-- <div class="mantisCute">
-                        <img src="./assets/images/mantisCute.jpg" alt="Adorable Mantis from Marvel">
-                    </div> -->
-                </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-12">
+            <div class="footer push">
+                <footer class="footer text-center">
+                    <div class="container">
+                        <p><a href="http://www.edna.tech">About Edna Jonsson</a> | <a href="https://github.com/Ednas/Psychic-Game">GitHub Repo</a>
+                            <br>Edna Jonsson &copy; 2016 -
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                        </p>
+                    </div>
+                </footer>
             </div>
         </div>
 
-    </div>
-    <div class="col-md-12">
-        <div class="footer push">
-            <footer class="footer text-center">
-                <div class="container">
-                    <p><a href="http://www.edna.tech">About Edna Jonsson</a> | <a href="https://github.com/Ednas/Psychic-Game">GitHub Repo</a>
-                        <br>Edna Jonsson &copy; 2016 -
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script>
-                    </p>
-                </div>
-            </footer>
-        </div>
     </div>
     <script type="text/javascript" src="assets/js/app.js"></script>
 </body>

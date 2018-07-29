@@ -8,7 +8,7 @@ let guesses = 9;
 let guessesLeft = 9;
 let guessedLetters = [];
 var letterToGuess = null;
-
+var yay = new Audio("./assets/sounds/success.mp3");
 
 
 //Lets the computer select a random letter from the available choices
@@ -61,6 +61,7 @@ document.onkeyup = function(event) {
         if (guessesLeft > 0) {
             if (userGuess == letterToGuess) {
                 wins++;
+                yay.play();
                 document.querySelector('#wins').innerHTML = "Wins: " + wins;
                 userGuess = userGuess.toUpperCase();
                 alert("Yes, you are psychic! Mantis has chosen " + userGuess);
