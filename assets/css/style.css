@@ -20,7 +20,7 @@ body {
 }
 
 #game {
-    margin-top: 3em;
+    margin-top: 2em;
     z-index: 1;
     text-align: left;
 }
@@ -53,10 +53,10 @@ img {
 /* Creates the speech bubble */
 
 .mantis {
-    height: 2em;
-    max-width: 50%;
+    margin-top: 15em;
+    height: 4em;
     position: relative;
-    background: #00aabb;
+    background: #49a7b1;
     border-radius: .4em;
     z-index: 1;
 }
@@ -64,16 +64,15 @@ img {
 .mantis:after {
     content: '';
     position: absolute;
-    left: 0;
+    right: 0;
     top: 50%;
     width: 0;
     height: 0;
-    border: 0.8em solid transparent;
-    border-right-color: #00aabb;
-    border-left: 0;
-    border-bottom: 0;
-    margin-top: -0.4em;
-    margin-left: -0.8em;
+    border: 0.5em solid transparent;
+    border-left-color: #49a7b1;
+    border-right: 0;
+    margin-top: -0.5em;
+    margin-right: -0.5em;
 }
 
 .footer,
