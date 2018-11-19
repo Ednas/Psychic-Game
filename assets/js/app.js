@@ -14,7 +14,7 @@ var ouch = new Audio("./assets/sounds/wrongKey.wav");
 
 //Lets the computer select a random letter from the available choices
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
+document.querySelector('.mantis').style.display = "none";
 //Allows the user 9 guesses
 // guesses = guesses || 9
 function updateGuessesLeft() {
@@ -35,7 +35,7 @@ var reset = function() {
     totalGuesses = 9;
     guessesLeft = 9;
     guessedLetters = [];
-
+    setTimeout(function() { document.querySelector('.mantis').style.display = 'none'; }, 5000);
     updateLetterToGuess();
     updateGuessesLeft();
     updateGuessesSoFar();
@@ -66,7 +66,9 @@ document.onkeyup = function(event) {
                 yay.play();
                 document.querySelector('#wins').innerHTML = "Wins: " + wins;
                 userGuess = userGuess.toUpperCase();
-                alert("Yes, you are psychic! Mantis has chosen " + userGuess);
+                document.querySelector('.mantis').style.display = '';
+                document.querySelector('.mantis').style.height = '4em';
+                document.querySelector('.mantis').innerHTML = "Good guess wee grasshopper " + userGuess + " was the letter I was thinking of!";
                 reset();
             }
         } else if (guessesLeft == 0) {
@@ -74,9 +76,11 @@ document.onkeyup = function(event) {
             losses++;
             boo.play();
             document.querySelector('#losses').innerHTML = "Losses: " + losses;
-            alert("Sorry, you're not psychic, maybe try again?");
+            document.querySelector('.mantis').style.display = '';
+            document.querySelector('.mantis').innerHTML = "Sorry grasshopper, I was thinking of the letter " + letterToGuess;
             // Then we'll call the reset. 
             reset();
+
         }
         return false;
     } else {
